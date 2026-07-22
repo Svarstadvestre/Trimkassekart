@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="utf-8"/>
+    <title>Kartverkskart</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.5.1/gpx.min.js"></script>
+
+    <style>
+        #map {
+            height: 700px;     /* juster høyden etter behov */
+            width: 100%;       /* fyller hele bredden */
+        }
+
+        .leaflet-tooltip {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Kart</h1>
+
+<div id="map"></div>
+
+<script type="text/javascript">
+
+    // Sett startposisjon og zoom
+    var map = L.map('map').setView([59.98, 11.35], 12.3);
+
+    // Kartverkets topo-kart
+    L.tileLayer('https://cache.kartverket.no/v1/wmts/1.0.0/topo/default/webmercator/{z}/{y}/{x}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="http://www.kartverket.no/">Kartverket</a>'
+    }).addTo(map);
+
+    // --- STABILE IKONER (SVG Data-URIs) ---
+
+    // Blått parkeringsikon (P)
+    var parkingIcon = L.icon({
+        iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="%230055A5"/><text x="16" y="23" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">P</text></svg>',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -16]
+    });
+
+    // Rødt pennant icon
+    var trimkasseIcon = L.icon({
+        iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="%23ff2e2e"><path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" /></svg>',
+        iconSize: [36, 36],
+        iconAnchor: [18, 36], // Spissen i bunnen treffer punktet på kartet
+        popupAnchor: [0, -36]
+    });
+
+    // --- MARKØRER ---
+
+    // 1. Svarstadtjernet
+    var marker1 = L.marker([60.01980, 11.36315], { icon: trimkasseIcon }).addTo(map);
+    marker1.bindTooltip("Svarstadtjernet", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0]
+    });
+
+    marker1.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">Svarstadtjernet</h3>
+            <img src="bilder/svarstadtjernet.jpg" alt="Svarstadtjernet" style="width: 100%; height: auto; border-radius: 8px;">
+            <p style="margin-top: 10px; font-size: 15px;"></p>
+        </div>
+    `, {
+        maxWidth: 700,
+        minWidth: 600
+    });
+
+    // Parkeringer (kun ikoner)
+    var pMarker1 = L.marker([60.02630, 11.36341], { icon: parkingIcon }).addTo(map);
+    var pMarker2 = L.marker([60.00506, 11.35261], { icon: parkingIcon }).addTo(map);
+
+    // 2. Igletjern
+    var marker2 = L.marker([59.951063, 11.289591], { icon: trimkasseIcon }).addTo(map);
+    marker2.bindTooltip("Igletjern", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0]
+    });
+
+    marker2.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">Igletjern</h3>
+            <img src="bilder/igletjern.jpg" alt="Igletjern" style="width: 100%; height: auto; border-radius: 8px;">
+            <p style="margin-top: 10px; font-size: 15px;"></p>
+        </div>
+    `, {
+        maxWidth: 700,
+        minWidth: 600
+    });
+
+    var pMarker3 = L.marker([59.976245, 11.310877], { icon: parkingIcon }).addTo(map);
+
+    // 3. Gruva
+    var marker3 = L.marker([59.996223, 11.338258], { icon: trimkasseIcon }).addTo(map);
+    marker3.bindTooltip("Gruva", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0]
+    });
+
+    marker3.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">Gruva</h3>
+            <img src="bilder/gruva.jpg" alt="Gruva" style="width: 100%; height: auto; border-radius: 8px;">
+            <p style="margin-top: 10px; font-size: 15px;"></p>
+        </div>
+    `, {
+        maxWidth: 700,
+        minWidth: 600
+    });
+
+    var pMarker5 = L.marker([59.985042, 11.349079], { icon: parkingIcon }).addTo(map);
+
+    // 4. Hauketjern
+    var marker4 = L.marker([59.98782, 11.43835], { icon: trimkasseIcon }).addTo(map);
+    marker4.bindTooltip("Hauketjern", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0]
+    });
+
+    marker4.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">Hauketjern</h3>
+            <img src="bilder/Hauketjern.jpg" alt="Hauketjern" style="max-height: 450px; max-width: 100%; width: auto; border-radius: 8px; display: block; margin: 0 auto;">
+            <p style="margin-top: 10px; font-size: 15px;"></p>
+        </div>
+    `, {
+        maxWidth: 400,
+        minWidth: 250
+    });
+
+    var pMarker5b = L.marker([59.996716, 11.402390], { icon: parkingIcon }).addTo(map);
+
+    // 5. Gjertrudsteinen
+    var marker5 = L.marker([59.984031, 11.388716], { icon: trimkasseIcon }).addTo(map);
+    marker5.bindTooltip("Gjertrudsteinen", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0]
+    });
+
+    marker5.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">Gjertrudsteinen</h3>
+            <img src="bilder/gjertrudsteinen.jpg" alt="Gjertrudsteinen" style="width: 100%; height: auto; border-radius: 8px;">
+            <p style="margin-top: 10px; font-size: 15px;"></p>
+        </div>
+    `, {
+        maxWidth: 700,
+        minWidth: 600
+    });
+
+    var pMarker6 = L.marker([59.991410, 11.372127], { icon: parkingIcon }).addTo(map);
+
+    // 6. Fleskeberget
+    var marker6 = L.marker([60.00002, 11.40645], { icon: trimkasseIcon }).addTo(map);
+    marker6.bindTooltip("Fleskeberget", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0]
+    });
+
+   marker6.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">Fleskeberget</h3>
+            <img src="bilder/fleskeberget.jpg" alt="Fleskeberget" style="width: 100%; height: auto; border-radius: 8px;">
+            <p style="margin-top: 10px; font-size: 15px;"></p>
+        </div>
+    `, {
+        maxWidth: 700,
+        minWidth: 600
+    });
+
+    // 7. Fjuktjern
+    var marker7 = L.marker([59.978936, 11.417797], { icon: trimkasseIcon }).addTo(map);
+    marker7.bindTooltip("Fjuktjern", {
+        permanent: true,
+        direction: "right",
+        offset: [10, 0]
+    });
+
+    marker7.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 10px 0;">Fjuktjern</h3>
+            <img src="bilder/fjuktjern.jpg" alt="Fjuktjern" style="width: 100%; height: auto; border-radius: 8px;">
+            <p style="margin-top: 10px; font-size: 15px;"></p>
+        </div>
+    `, {
+        maxWidth: 700,
+        minWidth: 600
+    });
+
+</script>
+
+</body>
+</html>
