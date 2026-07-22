@@ -14,8 +14,8 @@
 
     <style>
         #map {
-            height: 700px;     /* juster høyden etter behov */
-            width: 100%;       /* fyller hele bredden */
+            height: 700px;
+            width: 100%;
         }
 
         .leaflet-tooltip {
@@ -56,7 +56,7 @@
     var trimkasseIcon = L.icon({
         iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="%23ff2e2e"><path d="M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z" /></svg>',
         iconSize: [36, 36],
-        iconAnchor: [18, 36], // Spissen i bunnen treffer punktet på kartet
+        iconAnchor: [18, 36],
         popupAnchor: [0, -36]
     });
 
@@ -73,8 +73,7 @@
     marker1.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Svarstadtjernet</h3>
-            <img src="bilder/svarstadtjernet.jpg" alt="Svarstadtjernet" style="width: 100%; height: auto; border-radius: 8px;">
-            <p style="margin-top: 10px; font-size: 15px;"></p>
+            <img src="Bilder/Svarstadtjernet.jpg" alt="Svarstadtjernet" style="width: 100%; height: auto; border-radius: 8px;">
         </div>
     `, {
         maxWidth: 700,
@@ -96,8 +95,7 @@
     marker2.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Igletjern</h3>
-            <img src="bilder/igletjern.jpg" alt="Igletjern" style="width: 100%; height: auto; border-radius: 8px;">
-            <p style="margin-top: 10px; font-size: 15px;"></p>
+            <img src="Bilder/Igletjern.jpg" alt="Igletjern" style="width: 100%; height: auto; border-radius: 8px;">
         </div>
     `, {
         maxWidth: 700,
@@ -117,14 +115,14 @@
     marker3.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Gruva</h3>
-            <img src="bilder/gruva.jpg" alt="Gruva" style="width: 100%; height: auto; border-radius: 8px;">
-            <p style="margin-top: 10px; font-size: 15px;"></p>
+            <img src="Bilder/Gruva.jpg" alt="Gruva" style="width: 100%; height: auto; border-radius: 8px;">
         </div>
     `, {
         maxWidth: 700,
         minWidth: 600
     });
 
+    var pMarker4 = L.marker([60.003748, 11.339191], { icon: parkingIcon }).addTo(map);
     var pMarker5 = L.marker([59.985042, 11.349079], { icon: parkingIcon }).addTo(map);
 
     // 4. Hauketjern
@@ -138,8 +136,7 @@
     marker4.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Hauketjern</h3>
-            <img src="bilder/Hauketjern.jpg" alt="Hauketjern" style="max-height: 450px; max-width: 100%; width: auto; border-radius: 8px; display: block; margin: 0 auto;">
-            <p style="margin-top: 10px; font-size: 15px;"></p>
+            <img src="Bilder/Hauketjern.jpg" alt="Hauketjern" style="max-height: 450px; max-width: 100%; width: auto; border-radius: 8px; display: block; margin: 0 auto;">
         </div>
     `, {
         maxWidth: 400,
@@ -159,8 +156,7 @@
     marker5.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Gjertrudsteinen</h3>
-            <img src="bilder/gjertrudsteinen.jpg" alt="Gjertrudsteinen" style="width: 100%; height: auto; border-radius: 8px;">
-            <p style="margin-top: 10px; font-size: 15px;"></p>
+            <img src="Bilder/Gjertrudsteinen.jpg" alt="Gjertrudsteinen" style="width: 100%; height: auto; border-radius: 8px;">
         </div>
     `, {
         maxWidth: 700,
@@ -177,11 +173,10 @@
         offset: [10, 0]
     });
 
-   marker6.bindPopup(`
+    marker6.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Fleskeberget</h3>
-            <img src="bilder/fleskeberget.jpg" alt="Fleskeberget" style="width: 100%; height: auto; border-radius: 8px;">
-            <p style="margin-top: 10px; font-size: 15px;"></p>
+            <img src="Bilder/Fleskeberget.jpg" alt="Fleskeberget" style="width: 100%; height: auto; border-radius: 8px;">
         </div>
     `, {
         maxWidth: 700,
@@ -199,8 +194,7 @@
     marker7.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Fjuktjern</h3>
-            <img src="bilder/fjuktjern.jpg" alt="Fjuktjern" style="width: 100%; height: auto; border-radius: 8px;">
-            <p style="margin-top: 10px; font-size: 15px;"></p>
+            <img src="Bilder/Fjuktjern.jpg" alt="Fjuktjern" style="width: 100%; height: auto; border-radius: 8px;">
         </div>
     `, {
         maxWidth: 700,
