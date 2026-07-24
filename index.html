@@ -19,7 +19,7 @@
         }
 
         .leaflet-tooltip {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: bold;
         }
     </style>
@@ -27,7 +27,7 @@
 
 <body>
 
-<h1>Kart</h1>
+<h1>Trimkasser Blaker IL</h1>
 
 <div id="map"></div>
 
@@ -47,9 +47,9 @@
     // Blått parkeringsikon (P)
     var parkingIcon = L.icon({
         iconUrl: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="%230055A5"/><text x="16" y="23" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">P</text></svg>',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16],
-        popupAnchor: [0, -16]
+        iconSize: [20, 20],
+        iconAnchor: [10, 10],
+        popupAnchor: [0, -10]
     });
 
     // Rødt pennant icon
@@ -73,8 +73,7 @@
     marker1.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Svarstadtjernet</h3>
-            <img src="Bilder/Svarstadtjernet.jpg" alt="Svarstadtjernet" style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
+            <img src="Bilder/Svarstadtjernet.jpg" alt="Svarstadtjernet" style="width: 100%; height: auto; border-radius: 8px;">Svarstadtjernet ligger på toppen av Svarstadåsen, og delet mellom Lillestrøm kommune og Nes kommune går midt i tjernet. På østsiden av tjernet er det fint å bade. Det er fine stier til Svarstadtjernet fra Thoreidmoen, Rånåsfoss og Aulifeltet. <br><br> Koordinater: 60.01969 N 11.36310 E. </div>
     `, {
         maxWidth: 700,
         minWidth: 600
@@ -95,8 +94,7 @@
     marker2.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Igletjern</h3>
-            <img src="Bilder/Igletjern.jpg" alt="Igletjern" style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
+            <img src="Bilder/Igletjern.jpg" alt="Igletjern" style="width: 100%; height: auto; border-radius: 8px;">Igletjern er lett tilgjengelig for hele familien. Om man parkerer Tertittveien er det grusvei og fin sti frem til tjernet. Det er en fint opparbeidet bålplass ved tjernet. Det sette hvert år ut ørret i vannet med gjennomsnittsvekt på 500 gram. Kjøp av fiskekort gjøres digitalt via iNatur.<br><br>Når det er forhold for det kjører Blaker IL skiløyper til Igletjern.<br><br>Koordinater: 59.95106 N 11.28959 E.</div>
     `, {
         maxWidth: 700,
         minWidth: 600
@@ -115,8 +113,7 @@
     marker3.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Gruva</h3>
-            <img src="Bilder/Gruva.jpg" alt="Gruva" style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
+            <img src="Bilder/Gruva.jpg" alt="Gruva" style="width: 100%; height: auto; border-radius: 8px;">Kobbergruva på Skugstadåsen<br><br>I skogen her i Skugstadåsen finner du restene av en gammel kobbergruve fra starten av 1900-tallet.<br><br>Da den nasjonale «skjerpefeberen» raste tidlig på 1900-tallet satte håpefulle lykkejegere i gang med prøvedrift her. På det meste var over 20 mann i arbeid i gruveområdet.<br><br>I dag kan du se den vannfylte skråsjakta som fører hele 40 meter ned i fjellet, og spor etter driften som en gang var her. Kobber fra gruva ble fraktet til Blaker stasjon og sendt med tog til Røros for omsmelting.<br><br>Koordinater: 59.99622 N 11.33826 E.</div>
     `, {
         maxWidth: 700,
         minWidth: 600
@@ -136,14 +133,15 @@
     marker4.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Hauketjern</h3>
-            <img src="Bilder/Hauketjern.jpg" alt="Hauketjern" style="max-height: 450px; max-width: 100%; width: auto; border-radius: 8px; display: block; margin: 0 auto;">
-        </div>
+            <img src="Bilder/Hauketjern.jpg" alt="Hauketjern" style="width: 100%; height: auto; border-radius: 8px;">Hauketjern er et idyllisk tjern der tre kommunegrenser møtes; midt i vannet møtes Lillestrøm, Nes og Aurskog-Høland kommuner.<br><br>Parkering på Bøssvegen. Om man ønsker en lenger tur kan man kombinere turen til Hauketjern med både Gjertrudsteinen og Fjuktjern.<br><br>Koordinater: 59.59162 N 1126181 E.</div>
     `, {
-        maxWidth: 400,
-        minWidth: 250
+        maxWidth: 700,
+        minWidth: 600
     });
 
     var pMarker5b = L.marker([59.996716, 11.402390], { icon: parkingIcon }).addTo(map);
+var pMarker7 = L.marker([60.002881, 11.417589], { icon: parkingIcon }).addTo(map);
+
 
     // 5. Gjertrudsteinen
     var marker5 = L.marker([59.984031, 11.388716], { icon: trimkasseIcon }).addTo(map);
@@ -156,7 +154,7 @@
     marker5.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Gjertrudsteinen</h3>
-            <img src="Bilder/Gjertrudsteinen.jpg" alt="Gjertrudsteinen" style="width: 100%; height: auto; border-radius: 8px;">Gjertrudsteinen er en stein på rundt 20 kubikkmeter som ble fraktet hit av innlandsisen ved siste istid, og har ligget her i omtrent 10.000 år. Om man parkerer på Blaker skole er det en fin tur på grusvei og sti frem til Gjertrudsteinen. Dersom man ønsker er det fint å kombinere turen med en tur til trimkassen ved Fjuktjern.</div>
+            <img src="Bilder/Gjertrudsteinen.jpg" alt="Gjertrudsteinen" style="width: 100%; height: auto; border-radius: 8px;">Gjertrudsteinen er en stein på rundt 20 kubikkmeter som ble fraktet hit av innlandsisen ved siste istid, og har ligget her i omtrent 10.000 år. Om man parkerer på Blaker skole er det en fin tur på grusvei og sti frem til Gjertrudsteinen. Dersom man ønsker er det fint å kombinere turen med en tur til trimkassen ved Fjuktjern.<br><br>Koordinater: 59.98403 N 11.38872 E.</div>
     `, {
         maxWidth: 700,
         minWidth: 600
@@ -175,8 +173,7 @@
     marker6.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Fleskeberget</h3>
-            <img src="Bilder/Fleskeberget.jpg" alt="Fleskeberget" style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
+            <img src="Bilder/Fleskeberget.jpg" alt="Fleskeberget" style="width: 100%; height: auto; border-radius: 8px;">Fleskeberget er en høyde nord for Stagrim. Det er en stor stein der som man kan krype under.<br><br>Trimkassen på Fleskeberget står nøyaktig på 60° nord.<br><br> Koordinater: 60.00001 N 11.24232 E.</div>
     `, {
         maxWidth: 700,
         minWidth: 600
@@ -193,8 +190,7 @@
     marker7.bindPopup(`
         <div style="text-align: center;">
             <h3 style="margin: 0 0 10px 0;">Fjuktjern</h3>
-            <img src="Bilder/Fjuktjern.jpg" alt="Fjuktjern" style="width: 100%; height: auto; border-radius: 8px;">
-        </div>
+            <img src="Bilder/Fjuktjern.jpg" alt="Fjuktjern" style="width: 100%; height: auto; border-radius: 8px;">Fjuktjern ligger på grensen mellom Lillestrøm kommune og Aurskog-Høland kommune. Man kan parkere på Blaker skole. På vei til tjernet kan man gå innom Gjertrudsteinen. På vei opp kan man også ta en hvil i gapahuken til Blaker IL, som er satt opp i enden av grusveien der man tar av på sti til Fjuktjern.<br><br>Det er fine berg rundt tjernet, der man kan spise matpakka mens man ser abboren vake.<br><br>Koordinater: 59.97894 N 11.41779 E.</div>
     `, {
         maxWidth: 700,
         minWidth: 600
